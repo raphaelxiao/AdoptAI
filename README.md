@@ -11,7 +11,7 @@
 
 **智能决策AI在任务中的参与程度，科学规划人机协作模式**
 
-[在线体验](https://your-demo-url.com) • [使用文档](#使用指南) • [API文档](#api-接口) • [贡献指南](#贡献) • [English](README_EN.md)
+[在线体验](https://adoptai.shuaifox.com) • [使用文档](#使用指南) • [API文档](#api-接口) • [贡献指南](#贡献) • [English](README_EN.md)
 
 </div>
 
@@ -287,7 +287,7 @@ npm test
 
 - 项目主页：https://github.com/raphaelxiao/AdoptAI
 - 问题反馈：https://github.com/raphaelxiao/AdoptAI/issues
-- 邮箱：your-email@example.com
+- 邮箱：raphael.xiao@gmail.com
 
 ---
 
