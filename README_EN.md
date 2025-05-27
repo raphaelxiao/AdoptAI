@@ -7,7 +7,7 @@
 [![Node.js](https://img.shields.io/badge/Node.js-18+-339933?style=flat-square&logo=node.js&logoColor=white)](https://nodejs.org/)
 [![Express](https://img.shields.io/badge/Express-4.x-000000?style=flat-square&logo=express&logoColor=white)](https://expressjs.com/)
 [![License](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](LICENSE)
-[![GitHub Stars](https://img.shields.io/github/stars/yourusername/AdoptAI?style=flat-square)](https://github.com/yourusername/AdoptAI)
+[![GitHub Stars](https://img.shields.io/github/stars/raphaelxiao/AdoptAI?style=flat-square)](https://github.com/raphaelxiao/AdoptAI)
 
 **Intelligently determine AI's role in task completion and scientifically plan human-AI collaboration**
 
@@ -40,7 +40,7 @@ AdoptAI is an intelligent AI task participation evaluation tool that helps you s
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/yourusername/AdoptAI.git
+git clone https://github.com/raphaelxiao/AdoptAI.git
 cd AdoptAI
 ```
 
@@ -285,8 +285,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Contact Us
 
-- Project Homepage: https://github.com/yourusername/AdoptAI
-- Issue Reporting: https://github.com/yourusername/AdoptAI/issues
+- Project Homepage: https://github.com/raphaelxiao/AdoptAI
+- Issue Reporting: https://github.com/raphaelxiao/AdoptAI/issues
 - Email: your-email@example.com
 
 ---
@@ -295,6 +295,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **If this project helps you, please give us a ⭐ Star!**
 
-Made with ❤️ by [Your Name](https://github.com/yourusername)
+Made with ❤️ by [Raphael Xiao](https://github.com/raphaelxiao)
 
 </div> 

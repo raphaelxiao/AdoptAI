@@ -37,12 +37,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/AdoptAI.git"
+    "url": "https://github.com/raphaelxiao/AdoptAI.git"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/AdoptAI/issues"
+    "url": "https://github.com/raphaelxiao/AdoptAI/issues"
   },
-  "homepage": "https://github.com/yourusername/AdoptAI#readme",
+  "homepage": "https://github.com/raphaelxiao/AdoptAI#readme",
   "engines": {
     "node": ">=18.0.0",
     "npm": ">=8.0.0"

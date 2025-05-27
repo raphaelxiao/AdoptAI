@@ -7,7 +7,7 @@
 [![Node.js](https://img.shields.io/badge/Node.js-18+-339933?style=flat-square&logo=node.js&logoColor=white)](https://nodejs.org/)
 [![Express](https://img.shields.io/badge/Express-4.x-000000?style=flat-square&logo=express&logoColor=white)](https://expressjs.com/)
 [![License](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](LICENSE)
-[![GitHub Stars](https://img.shields.io/github/stars/yourusername/AdoptAI?style=flat-square)](https://github.com/yourusername/AdoptAI)
+[![GitHub Stars](https://img.shields.io/github/stars/raphaelxiao/AdoptAI?style=flat-square)](https://github.com/raphaelxiao/AdoptAI)
 
 **智能决策AI在任务中的参与程度，科学规划人机协作模式**
 
@@ -40,7 +40,7 @@ AdoptAI是一个智能的AI任务参与度评估工具，帮助您科学决策�
 
 1. **克隆项目**
 ```bash
-git clone https://github.com/yourusername/AdoptAI.git
+git clone https://github.com/raphaelxiao/AdoptAI.git
 cd AdoptAI
 ```
 
@@ -285,8 +285,8 @@ npm test
 
 ## 📞 联系我们
 
-- 项目主页：https://github.com/yourusername/AdoptAI
-- 问题反馈：https://github.com/yourusername/AdoptAI/issues
+- 项目主页：https://github.com/raphaelxiao/AdoptAI
+- 问题反馈：https://github.com/raphaelxiao/AdoptAI/issues
 - 邮箱：your-email@example.com
 
 ---
@@ -295,6 +295,6 @@ npm test
 
 **如果这个项目对您有帮助，请给我们一个 ⭐ Star！**
 
-Made with ❤️ by [Your Name](https://github.com/yourusername)
+Made with ❤️ by [Raphael Xiao](https://github.com/raphaelxiao)
 
 </div> 
