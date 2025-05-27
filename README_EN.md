@@ -11,7 +11,7 @@
 
 **Intelligently determine AI's role in task completion and scientifically plan human-AI collaboration**
 
-[Live Demo](https://your-demo-url.com) • [Documentation](#usage-guide) • [API Docs](#api-endpoints) • [Contributing](#contributing) • [中文](README.md)
+[Live Demo](https://adoptai.shuaifox.com) • [Documentation](#usage-guide) • [API Docs](#api-endpoints) • [Contributing](#contributing) • [中文](README.md)
 
 </div>
 
@@ -287,7 +287,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - Project Homepage: https://github.com/raphaelxiao/AdoptAI
 - Issue Reporting: https://github.com/raphaelxiao/AdoptAI/issues
-- Email: your-email@example.com
+- Email: raphael.xiao@gmail.com
 
 ---
 
