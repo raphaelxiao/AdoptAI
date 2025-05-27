@@ -632,7 +632,12 @@ function closeErrorModal() {
 }
 
 // 显示信息模态框
-function showInfoModal() {
+function showInfoModal(event) {
+    // 阻止事件冒泡，防止触发label的默认行为
+    if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+    }
     const infoModal = document.getElementById('infoModal');
     infoModal.classList.add('show');
 }
