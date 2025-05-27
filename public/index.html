@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdoptAI</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 头部 -->
+        <header class="header">
+            <div class="header-content">
+                <h1><i class="fas fa-robot"></i>AdoptAI</h1>
+                <p>智能分析任务，科学决策AI参与程度</p>
+            </div>
+        </header>
+
+        <!-- 主要内容区域 -->
+        <main class="main-content">
+            <!-- 步骤1: 任务输入 -->
+            <section id="step1" class="step-section active">
+                <div class="step-header">
+                    <div class="step-number">1</div>
+                    <h2>任务信息输入</h2>
+                </div>
+                
+                <form id="taskForm" class="task-form">
+                    <div class="form-group">
+                        <label for="task">
+                            <i class="fas fa-tasks"></i>
+                            任务描述
+                        </label>
+                        <textarea 
+                            id="task" 
+                            name="task" 
+                            placeholder="请详细描述您要完成的任务，例如：写一份市场分析报告、开发一个登录功能、制作演示PPT等..."
+                            required
+                        ></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="profession">
+                                <i class="fas fa-briefcase"></i>
+                                职业
+                            </label>
+                            <input 
+                                type="text" 
+                                id="profession" 
+                                name="profession" 
+                                placeholder="例如：软件工程师、产品经理、市场专员..."
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="age">
+                                <i class="fas fa-user"></i>
+                                年龄
+                            </label>
+                            <input 
+                                type="number" 
+                                id="age" 
+                                name="age" 
+                                min="18" 
+                                max="100" 
+                                placeholder="25"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="retirementAge">
+                                <i class="fas fa-calendar-alt"></i>
+                                能力应用截止年龄
+                                <span class="info-button" onclick="showInfoModal()" title="点击查看说明">
+                                    <i class="fas fa-info-circle"></i>
+                                </span>
+                            </label>
+                            <input 
+                                type="number" 
+                                id="retirementAge" 
+                                name="retirementAge" 
+                                min="50" 
+                                max="80" 
+                                value="60"
+                                required
+                            >
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-primary">
+                        <i class="fas fa-search"></i>
+                        开始分析
+                    </button>
+                </form>
+            </section>
+
+            <!-- 步骤2: 能力分析 -->
+            <section id="step2" class="step-section">
+                <div class="step-header">
+                    <div class="step-number">2</div>
+                    <h2>能力拆解分析</h2>
+                </div>
+                
+                <div id="skillsAnalysis" class="skills-container">
+                    <!-- 动态生成的能力列表 -->
+                </div>
+            </section>
+
+            <!-- 步骤3: 能力评估 -->
+            <section id="step3" class="step-section">
+                <div class="step-header">
+                    <div class="step-number">3</div>
+                    <h2>能力水平评估</h2>
+                </div>
+                
+                <div id="skillEvaluation" class="evaluation-container">
+                    <!-- 动态生成的评估表单 -->
+                </div>
+            </section>
+
+            <!-- 步骤4: 结果展示 -->
+            <section id="step4" class="step-section">
+                <div class="step-header">
+                    <div class="step-number">4</div>
+                    <h2>AI参与建议</h2>
+                </div>
+                
+                <div id="results" class="results-container">
+                    <!-- 动态生成的结果 -->
+                </div>
+            </section>
+        </main>
+
+        <!-- 免责声明 -->
+        <div class="ai-disclaimer">
+            AI生成，仅供参考。如有反馈欢迎<a id="feedback-link" href="#">联系作者</a>。
+        </div>
+
+        <!-- 加载动画 -->
+        <div id="loading" class="loading-overlay">
+            <div class="loading-content">
+                <div class="spinner"></div>
+                <p id="loadingText">AI正在分析中...</p>
+                <div id="progressContainer" class="progress-container" style="display: none;">
+                    <div class="progress-bar">
+                        <div id="progressFill" class="progress-fill"></div>
+                    </div>
+                    <div id="progressText" class="progress-text">0/0</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 错误提示 -->
+        <div id="errorModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3><i class="fas fa-exclamation-triangle"></i> 错误提示</h3>
+                <p id="errorMessage"></p>
+                <button class="btn-secondary" onclick="closeErrorModal()">确定</button>
+            </div>
+        </div>
+
+        <!-- 信息提示 -->
+        <div id="infoModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeInfoModal()">&times;</span>
+                <h3><i class="fas fa-info-circle"></i> 能力应用截止年龄说明</h3>
+                <p>指您预计不再需要应用此类能力的年龄，通常为退休年龄。这个年龄用于计算该能力的未来应用时间长度。</p>
+                <button class="btn-secondary" onclick="closeInfoModal()">知道了</button>
+            </div>
+        </div>
+
+        <!-- 二维码弹窗 -->
+        <div id="qrModal" class="modal">
+            <div class="modal-content qr-modal-content">
+                <span class="close" onclick="closeQrModal()">&times;</span>
+                <h3><i class="fas fa-qrcode"></i> 关注作者微信公众号</h3>
+                <div class="qr-container">
+                    <img src="qr.jpg" alt="微信公众号二维码" class="qr-image">
+                </div>
+                <button class="btn-secondary" onclick="closeQrModal()">知道了</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
