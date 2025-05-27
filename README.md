@@ -11,7 +11,7 @@
 
 **智能决策AI在任务中的参与程度，科学规划人机协作模式**
 
-[在线体验](https://your-demo-url.com) • [使用文档](#使用指南) • [API文档](#api-接口) • [贡献指南](#贡献)
+[在线体验](https://your-demo-url.com) • [使用文档](#使用指南) • [API文档](#api-接口) • [贡献指南](#贡献) • [English](README_EN.md)
 
 </div>
 
@@ -57,7 +57,7 @@ cp env.example .env
 编辑`.env`文件，配置AI服务：
 
 ```env
-# 推荐配置（国内用户）
+# 推荐配置
 AI_MODEL=Pro/deepseek-ai/DeepSeek-V3
 SILICONFLOW_API_KEY=your_siliconflow_api_key
 
@@ -65,7 +65,7 @@ SILICONFLOW_API_KEY=your_siliconflow_api_key
 AI_MODEL=gpt-4o
 OPENAI_API_KEY=your_openai_api_key
 
-# 可选：代理配置（中国大陆用户）
+# 可选：代理配置（如需要）
 HTTP_PROXY=http://127.0.0.1:7890
 HTTPS_PROXY=http://127.0.0.1:7890
 ```
@@ -128,9 +128,9 @@ npm start
 
 | 服务商 | 模型 | 推荐指数 | 备注 |
 |--------|------|----------|------|
-| **SiliconFlow** | Pro/deepseek-ai/DeepSeek-V3 | ⭐⭐⭐⭐⭐ | 国内访问稳定，推荐 |
-| **DeepSeek** | deepseek-chat, deepseek-reasoner | ⭐⭐⭐⭐ | 国内服务，性价比高 |
-| **OpenAI** | gpt-4o, gpt-4o-mini | ⭐⭐⭐ | 需要代理，质量高 |
+| **SiliconFlow** | Pro/deepseek-ai/DeepSeek-V3 | ⭐⭐⭐⭐⭐ | 访问稳定，推荐 |
+| **DeepSeek** | deepseek-chat, deepseek-reasoner | ⭐⭐⭐⭐ | 性价比高 |
+| **OpenAI** | gpt-4o, gpt-4o-mini | ⭐⭐⭐ | 质量高，可能需要代理 |
 | **阿里云** | deepseek-v3 | ⭐⭐⭐ | 企业用户推荐 |
 
 ### API密钥获取
@@ -239,9 +239,9 @@ npm test
 ### v2.0.0 - 多模型支持版本
 
 #### 🚀 新功能
-- **多AI服务提供商支持**：支持OpenAI、DeepSeek、SiliconFlow、阿里云等
+- **多AI服务提供商支持**：支持OpenAI、DeepSeek、SiliconFlow、阿里云等多种AI服务
 - **智能备选模型**：主模型不可用时自动切换备选模型
-- **敏感词过滤**：前后端双重敏感词检查机制
+- **内容过滤**：前后端双重内容检查机制
 - **移动端优化**：完善的响应式设计和折叠功能
 
 #### 🎨 UI优化
