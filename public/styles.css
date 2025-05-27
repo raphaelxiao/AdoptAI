@@ -31,13 +31,14 @@ body {
 
 /* 头部样式 */
 .header {
-    text-align: left;
+    text-align: center;
     margin-bottom: 15px;
 }
 
 .header-content {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 15px;
     flex-wrap: wrap;
 }
@@ -112,6 +113,12 @@ body {
 /* 表单样式 */
 .task-form {
     max-width: 800px;
+    margin: 0 auto;
+}
+
+.task-form .btn-primary {
+    display: block;
+    margin: 30px auto 0;
 }
 
 .form-group {
@@ -664,6 +671,15 @@ body {
     margin-right: 10px;
 }
 
+/* 信息弹窗标题特殊样式 */
+#infoModal .modal-content h3 {
+    color: var(--primary-color);
+}
+
+#infoModal .modal-content h3 i {
+    color: var(--primary-color);
+}
+
 /* 二维码弹窗标题特殊样式 */
 .qr-modal-content h3 {
     color: var(--primary-color);
@@ -779,7 +795,8 @@ body {
     
     .header-content {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
+        justify-content: center;
         gap: 8px;
     }
     
