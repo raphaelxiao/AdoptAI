@@ -183,6 +183,20 @@ async function analyzeTaskSkills(task, profession, age) {
     });
 }
 
+// 计算能力发展程度分数
+function calculateDevelopmentScore(userLevel) {
+    // 根据用户当前水平计算继续提升的边际效益
+    const levelMap = {
+        '初学者：刚开始接触，基本不会': { score: 9, reason: '从零基础开始学习，提升空间巨大，边际效益很高' },
+        '基础：有一定了解，能完成简单任务': { score: 8, reason: '已有基础但仍有很大提升空间，继续学习性价比高' },
+        '中级：比较熟练，能独立完成大部分任务': { score: 6, reason: '已达到中等水平，继续提升有一定价值但边际效益递减' },
+        '高级：非常熟练，能处理复杂任务和指导他人': { score: 4, reason: '已达到高级水平，继续提升的边际效益较低' },
+        '专家：该领域专家，能创新和解决前沿问题': { score: 2, reason: '已是专家级别，继续提升的边际效益很低，更多是维持现有水平' }
+    };
+    
+    return levelMap[userLevel] || { score: 5, reason: '需要进一步评估当前水平' };
+}
+
 // 评估单个能力
 async function evaluateSkill(skill, userLevel, task, profession, age, retirementAge, durationScore) {
     // 生成能力应用时间的说明
@@ -191,8 +205,11 @@ async function evaluateSkill(skill, userLevel, task, profession, age, retirement
         ? "已达到能力应用截止年龄，无未来应用时间" 
         : `距离${retirementAge}岁能力应用截止还有${remainingYears}年，未来可应用时间${remainingYears > 20 ? '较长' : remainingYears > 10 ? '中等' : '较短'}`;
 
+    // 本地计算能力发展程度
+    const development = calculateDevelopmentScore(userLevel);
+
     const prompt = `
-请作为专业的能力评估师，针对以下信息进行三维度评估：
+请作为专业的能力评估师，针对以下信息进行二维度评估：
 
 任务：${task}
 职业：${profession}
@@ -205,27 +222,23 @@ async function evaluateSkill(skill, userLevel, task, profession, age, retirement
 - 分数：${durationScore}分
 - 理由：${durationReason}
 
-请对其余三个维度进行评估（每个维度1-10分）：
+能力发展程度已计算完成：
+- 分数：${development.score}分
+- 理由：${development.reason}
 
-1. 能力发展程度：基于用户当前水平，继续提升这项能力的边际效益
-   - 分数越高表示继续提升的价值越大
-   - 考虑用户已有基础和提升空间
+请对其余两个维度进行评估（每个维度1-10分）：
 
-2. 能力持续性：这项能力被AI等技术替代的概率（逆向评分）
+1. 能力持续性：这项能力被AI等技术替代的概率（逆向评分）
    - 分数越高表示越不容易被替代
    - 创造性、情感类能力通常分数更高
 
-3. 能力相关度：这项能力与用户职业发展的相关程度
+2. 能力相关度：这项能力与用户职业发展的相关程度
    - 分数越高表示与职业发展越相关
    - 核心专业技能通常分数更高
 
 请以JSON格式返回，包含评分和简短说明：
 {
   "skill": "${skill}",
-  "development": {
-    "score": 分数,
-    "reason": "评分理由"
-  },
   "sustainability": {
     "score": 分数,
     "reason": "评分理由"
@@ -256,7 +269,8 @@ async function evaluateSkill(skill, userLevel, task, profession, age, retirement
             console.log('=== 清理结束 ===');
             
             const evaluation = JSON.parse(cleanedContent);
-            // 添加能力应用时间维度
+            // 添加本地计算的维度
+            evaluation.development = development;
             evaluation.duration = {
                 score: durationScore,
                 reason: durationReason
@@ -273,11 +287,11 @@ async function evaluateSkill(skill, userLevel, task, profession, age, retirement
             // 返回默认评估
             return {
                 skill: skill,
-                development: { score: 5, reason: "需要进一步评估" },
+                development: development,
                 duration: { score: durationScore, reason: durationReason },
                 sustainability: { score: 5, reason: "需要进一步评估" },
                 relevance: { score: 5, reason: "需要进一步评估" },
-                totalScore: 15 + durationScore
+                totalScore: development.score + durationScore + 10
             };
         }
     });
